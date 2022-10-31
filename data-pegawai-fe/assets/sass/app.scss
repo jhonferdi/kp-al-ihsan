@@ -1,0 +1,18 @@
+@import 'variables';
+@import '~bootstrap/scss/bootstrap';
+@import '~sweetalert2/src/sweetalert2';
+@import '~@fortawesome/fontawesome-svg-core/styles';
+@import "~vue-select/src/scss/vue-select.scss";
+
+@import 'elements/card';
+@import 'elements/navbar';
+@import 'elements/buttons';
+@import 'elements/transitions';
+
+.badge-message {
+    max-width: 500px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: sub;
+}

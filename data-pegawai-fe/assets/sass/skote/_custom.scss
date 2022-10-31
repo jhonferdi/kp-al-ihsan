@@ -1,0 +1,123 @@
+body{
+  font-family: 'Poppins',sans-serif;
+}
+.badge{
+  color: #fff;
+}
+.dropdown-toggle::after{
+    content:none;
+}
+.navbar-brand-box{
+    padding: 0 1rem !important;
+}
+.modal-backdrop {
+    opacity: .5;
+}
+
+.modal-header,
+.alert {
+    .close {
+        padding: 0.3rem 1.75rem;
+        background: transparent;
+        border: 0;
+        font-size: 25px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        opacity: .4;
+        width: 1em;
+        height: 1em;
+        z-index: 2;
+
+        button {
+            display: none;
+        }
+    }
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.vhd__datepicker__input {
+    height: $input-height !important;
+    line-height: $input-height !important;
+}
+
+.form-check {
+    .custom-control-input {
+        border-radius: .25em;
+        float: left;
+        margin: 3px 3px 3px -19px !important;
+    }
+}
+.table .thead-gray th {
+  color:#616161 !important;
+  background-color: #eeeeee;
+  border-color: tint-color(#E0E0E0, 7.5%);
+}
+.table-rounded{
+  position:relative;
+  > table{ border-radius: 10px !important;
+    thead, tbody {
+      border-left: 1px solid #E0E0E0;
+      border-right: 1px solid #E0E0E0;
+    }
+    tbody{
+      tr:last-child{
+        border-bottom: 1px solid #E0E0E0;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+    }
+  }
+}
+.table-rounded thead th:first-child{
+  border-top-left-radius: 10px;
+}
+.table-rounded thead th:last-child{
+  border-top-right-radius: 10px;
+}
+.table-rounded::after {
+    content: " ";
+    inset: 0;
+    border: solid #E0E0E0 1px;
+    position: absolute;
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.check-group {
+    input {
+        position: absolute;
+        clip: rect(0, 0, 0, 0);
+        pointer-events: none;
+    }
+}
+
+.form-check {
+    .custom-control-input {
+        background-color: #556ee6;
+        border-color: #556ee6;
+    }
+}
+.side-nav-link-ref.router-link-active{
+  color:white !important;
+  font-weight: bold;
+  i{
+    color:white !important;
+  }
+}
+.cur-p{
+  cursor: pointer;
+}
+.vertical-collpsed .vertical-menu #sidebar-menu > ul > li:hover > a span {
+  width: 200px;
+  display: inline-block !important;
+  white-space: normal;
+}
+body[data-sidebar="dark"].vertical-collpsed .vertical-menu #sidebar-menu > ul > li:hover > a {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+if [ ! -z "$WWWUSER" ]; then
+    usermod -u $WWWUSER sail
+fi
+
+if [ ! -d /.composer ]; then
+    mkdir /.composer
+fi
+
+chmod -R ugo+rw /.composer
+
+role=${CONTAINER_ROLE:-app}
+
+
+if [ "$role" = "app" ]; then
+if [ $# -gt 0 ];then
+    exec gosu $WWWUSER "$@"
+else
+    /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
+fi
+elif [ "$role" = "queue" ]; then
+
+    echo "Executing queue..."
+    sleep 60
+    echo "Running the queue..."
+    su sail -c 'php artisan queue:work database --verbose --daemon'
+
+elif [ "$role" = "cron" ]; then
+
+    while [ true ]
+    do
+      now=$(date +"%Y-%m-%d %T")
+      echo "[$now] Executing cron..."
+      su sail -c 'php artisan schedule:run --verbose --no-interaction' &
+      sleep $((60 - $(date +%s) % 60))
+    done
+
+else
+    echo "Could not match the container role \"$role\""
+    exit 1
+fi
